@@ -19,11 +19,7 @@
     "ko": "모바일 프로그래밍",
     "en": "Mobile Programming"
   },
-  "05.클라우드.png": {
-    "rgb": [93, 187, 77],
-    "ko": "클라우드",
-    "en": "Cloud"
-  },
+  "05.클라우드.png": { "rgb": [93, 187, 77], "ko": "클라우드", "en": "Cloud" },
   "06.데이터베이스.png": {
     "rgb": [242, 202, 136],
     "ko": "데이터베이스",
@@ -31,12 +27,12 @@
   },
   "07.운영체제-컴퓨터시스템.png": {
     "rgb": [81, 166, 220],
-    "ko": "운영체제",
+    "ko": "운영체제/컴퓨터시스템",
     "en": "OS/Computer System"
   },
   "08.개발방법론.png": {
     "rgb": [69, 106, 48],
-    "ko": "개발 방법론",
+    "ko": "개발방법론",
     "en": "Software Development Methodology"
   },
   "09.자료구조-알고리즘.png": {
@@ -44,19 +40,15 @@
     "ko": "자료구조",
     "en": "Data Structure/Algorithm"
   },
-  "10.게임.png": {
-    "rgb": [161, 200, 201],
-    "ko": "게임",
-    "en": "Game"
-  },
+  "10.게임.png": { "rgb": [161, 200, 201], "ko": "게임", "en": "Game" },
   "11.데이터분석-AI-ML.png": {
     "rgb": [104, 104, 172],
-    "ko": "데이터분석/AI",
+    "ko": "데이터분석/AI/ML",
     "en": "Data Analysis/AI/ML"
   },
   "12.보안-해킹-블록체인.png": {
     "rgb": [220, 150, 86],
-    "ko": "보안/해킹",
+    "ko": "보안/해킹(블록체인)",
     "en": "Security/Hacking/Blockchain"
   },
   "13.컴퓨터 개론.png": {
@@ -69,19 +61,11 @@
     "ko": "디자인/그래픽",
     "en": "Design/Graphics"
   },
-  "15.IT 일반.png": {
-    "rgb": [17, 17, 17],
-    "ko": "IT일반",
-    "en": "IT General"
-  },
+  "15.IT 일반.png": { "rgb": [17, 17, 17], "ko": "IT일반", "en": "IT General" },
   "16.자격증.png": {
     "rgb": [255, 162, 58],
     "ko": "자격증",
     "en": "Certifications"
   },
-  "17.비개발.png": {
-    "rgb": [255, 255, 255],
-    "ko": "비개발",
-    "en": "Non-IT"
-  }
+  "17.비개발.png": { "rgb": [255, 255, 255], "ko": "비개발", "en": "NOT IT" }
 }

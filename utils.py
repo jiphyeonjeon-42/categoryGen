@@ -1,12 +1,17 @@
 import json
 import tkinter
-from tkinter import Tk
 from pathlib import Path
+from tkinter import Tk
 
 from PIL import Image, ImageFont, ImageTk
 from PIL.Image import Image as Img
 
-RGB = tuple[int, int , int]
+RGB = tuple[int, int, int]
+Size = tuple[int, int]
+Per = tuple[float, float]
+
+BLACK: RGB = (30, 0, 0)
+WHITE: RGB = (255, 255, 255)
 
 with Path("data.json").open("r") as f:
     data = json.load(f)
@@ -25,6 +30,7 @@ def show_image(img: Img, per: int = 100):
     label = tkinter.Label(root, image=render)
     label.pack()
     root.mainloop()
+
 
 def get_info(path: Path) -> tuple[RGB, str, str]:
     res = data.get(path.name)

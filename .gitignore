@@ -1,10 +1,14 @@
 # imgs not used
 집현전_카테고리_아이콘-300ppi-백색.png
+집현전_카테고리_아이콘-300ppi-백색
 집현전_카테고리_아이콘-300ppi.png
 집현전_카테고리_아이콘-300ppi/
+17.비개발-백색.png
 
 # others
+temp/
 dist/
+*.zip
 asdf.py
 
 # Byte-compiled / optimized / DLL files

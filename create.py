@@ -1,45 +1,26 @@
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
-from PIL.Image import Image as Img
-
-from utils import get_info, resized_img, show_image
-
-Size = tuple[int, int]
+from category import Category
+from config import Config
 
 PPCM = PIXEL_PER_CM = int(118.11023622)  # 300ppi
-WHITE = (255, 255, 255)
-CANVAS_COLOR = (174, 218, 232)
-CANVAS_SIZE = (PPCM * 12, PPCM * 6)
 
-font_ko = ImageFont.truetype("fonts/neodgm_pro.ttf", PPCM)
-font_en = ImageFont.truetype(
-    "fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf", int(PPCM / 1.8)
+config = Config(
+    canvas_size=(PPCM * 16, PPCM * 6),
+    image_per=50,
+    font_ko_per=10,
+    font_en_per=5,
+    image_location=(3, 16),
+    font_ko_location=(30, 26),
+    font_en_location=(31, 60),
 )
 
 
-def create_category(path: Path) -> Img:
-    # 빈 캔버스 생성
-    rgb, ko, en = get_info(path)
-    print(rgb)
-    canvas = Image.new("RGBA", CANVAS_SIZE, rgb)
-
-    img = Image.open(path)
-    img = resized_img(img, 60)
-
-    canvas.paste(img, (0, PPCM // 2), img)
-
-    draw = ImageDraw.Draw(canvas)
-    draw.text((int(PPCM * 4), PPCM // 2), ko, font=font_ko, fill=WHITE)
-    draw.text(
-        (CANVAS_SIZE[0] // 2, CANVAS_SIZE[1] - PPCM), en, WHITE, font=font_en
-    )
-
-    return canvas
+def main():
+    category_path = Path("category/집현전_카테고리_아이콘")
+    for path in category_path.glob("**/*.png"):
+        Category(path=path, config=config).save()
 
 
-canvas = create_category(
-    Path("category/집현전_카테고리_아이콘-300ppi-백색/01.프로그래밍 언어.png")
-)
-
-show_image(canvas, 30)
+if __name__ == "__main__":
+    main()
