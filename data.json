@@ -2,70 +2,70 @@
   "01.프로그래밍 언어.png": {
     "rgb": [233, 67, 94],
     "ko": "프로그래밍 언어",
-    "en": "Programming Languages"
+    "en": "Programming Languages", "symbol": "A"
   },
   "02.웹 프로그래밍.png": {
     "rgb": [116, 115, 122],
     "ko": "웹 프로그래밍",
-    "en": "Web Programming"
+    "en": "Web Programming", "symbol": "B"
   },
   "03.네트워크.png": {
     "rgb": [161, 105, 70],
     "ko": "네트워크",
-    "en": "Network"
+    "en": "Network", "symbol": "C"
   },
   "04.모바일 프로그래밍.png": {
     "rgb": [171, 70, 66],
     "ko": "모바일 프로그래밍",
-    "en": "Mobile Programming"
+    "en": "Mobile Programming", "symbol": "D"
   },
-  "05.클라우드.png": { "rgb": [93, 187, 77], "ko": "클라우드", "en": "Cloud" },
+  "05.클라우드.png": { "rgb": [93, 187, 77], "ko": "클라우드", "en": "Cloud" , "symbol": "E"},
   "06.데이터베이스.png": {
     "rgb": [242, 202, 136],
     "ko": "데이터베이스",
-    "en": "Database"
+    "en": "Database", "symbol": "F"
   },
   "07.운영체제-컴퓨터시스템.png": {
     "rgb": [81, 166, 220],
     "ko": "운영체제/컴퓨터시스템",
-    "en": "OS/Computer System"
+    "en": "OS/Computer System", "symbol": "G"
   },
   "08.개발방법론.png": {
     "rgb": [69, 106, 48],
     "ko": "개발방법론",
-    "en": "Software Development Methodology"
+    "en": "Software Development Methodology", "symbol": "H"
   },
   "09.자료구조-알고리즘.png": {
     "rgb": [241, 118, 166],
     "ko": "자료구조",
-    "en": "Data Structure/Algorithm"
+    "en": "Data Structure/Algorithm", "symbol": "I"
   },
-  "10.게임.png": { "rgb": [161, 200, 201], "ko": "게임", "en": "Game" },
+  "10.게임.png": { "rgb": [161, 200, 201], "ko": "게임", "en": "Game", "symbol": "J" },
   "11.데이터분석-AI-ML.png": {
     "rgb": [104, 104, 172],
     "ko": "데이터분석/AI/ML",
-    "en": "Data Analysis/AI/ML"
+    "en": "Data Analysis/AI/ML", "symbol": "K"
   },
   "12.보안-해킹-블록체인.png": {
     "rgb": [220, 150, 86],
-    "ko": "보안/해킹(블록체인)",
-    "en": "Security/Hacking/Blockchain"
+    "ko": "보안/해킹/블록체인",
+    "en": "Security/Hacking/Blockchain", "symbol": "L"
   },
   "13.컴퓨터 개론.png": {
     "rgb": [137, 75, 93],
     "ko": "컴퓨터 개론",
-    "en": "Computer Science"
+    "en": "Computer Science", "symbol": "M"
   },
   "14.디자인-그래픽.png": {
     "rgb": [0, 205, 172],
     "ko": "디자인/그래픽",
-    "en": "Design/Graphics"
+    "en": "Design/Graphics", "symbol": "N"
   },
-  "15.IT 일반.png": { "rgb": [17, 17, 17], "ko": "IT일반", "en": "IT General" },
+  "15.IT 일반.png": { "rgb": [17, 17, 17], "ko": "IT일반", "en": "IT General", "symbol": "O" },
   "16.자격증.png": {
     "rgb": [255, 162, 58],
     "ko": "자격증",
-    "en": "Certifications"
+    "en": "Certifications", "symbol": "a"
   },
-  "17.비개발.png": { "rgb": [255, 255, 255], "ko": "비개발", "en": "NOT IT" }
+  "17.비개발.png": { "rgb": [255, 255, 255], "ko": "비개발", "en": "NOT IT", "symbol": "b~" }
 }

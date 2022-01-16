@@ -1,5 +1,7 @@
+import asyncio
 from pathlib import Path
 
+# from aio
 from category import Category
 from config import Config
 
@@ -10,9 +12,11 @@ config = Config(
     image_per=50,
     font_ko_per=10,
     font_en_per=5,
-    image_location=(3, 16),
-    font_ko_location=(30, 26),
-    font_en_location=(31, 60),
+    font_symbol_per=20,
+    image_location=(1, 16),
+    font_ko_location=(28, 26),
+    font_en_location=(29, 60),
+    font_symbol_location=(85, 50),
 )
 
 

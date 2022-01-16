@@ -11,7 +11,7 @@ class Category:
     def __init__(self, path: Path, config: Config) -> None:
         self.path = path
         self.name = path.name
-        self.rgb, self.ko, self.en = get_info(path)
+        self.rgb, self.ko, self.en, self.symbol = get_info(path)
         self.conf = config
         self.img = Image.open(path)
 
@@ -19,12 +19,17 @@ class Category:
 
     def render(self) -> Img:
         canvas = Image.new("RGBA", self.conf.canvas_size, self.rgb)
+        txt = Image.new("RGBA", self.conf.canvas_size, self.rgb)
+
         img = resized_img(self.img, 60)
 
-        canvas.paste(img, self.conf.per(self.conf.image_location), img)
-
-        draw = ImageDraw.Draw(canvas)
-
+        draw = ImageDraw.Draw(txt)
+        draw.text(
+            xy=self.conf.per(self.conf.font_symbol_location),
+            text=self.symbol,
+            font=self.conf.font_symbol_ttf,
+            fill=(*self.fontcolor, 64),
+        )
         draw.text(
             xy=self.conf.per(self.conf.font_ko_location),
             text=self.ko,
@@ -42,7 +47,9 @@ class Category:
             fill=self.fontcolor,
         )
 
-        return canvas
+        result = Image.alpha_composite(canvas, txt)
+        result.paste(img, self.conf.per(self.conf.image_location), img)
+        return result
 
     def save(self):
         self.canvas.save(f"dist/{self.name}")

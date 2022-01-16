@@ -32,6 +32,6 @@ def show_image(img: Img, per: int = 100):
     root.mainloop()
 
 
-def get_info(path: Path) -> tuple[RGB, str, str]:
+def get_info(path: Path) -> tuple[RGB, str, str, str]:
     res = data.get(path.name)
-    return tuple(res["rgb"]), res["ko"], res["en"]
+    return tuple(res["rgb"]), res["ko"], res["en"], res['symbol']
