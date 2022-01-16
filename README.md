@@ -12,7 +12,8 @@
 
 ```py
 config = Config(
-    canvas_size=(PPCM * 16, PPCM * 6), # PPCM = Pixel Per CeniMeter, cm당 픽셀 수 (300dpi 기준)
+    # PPCM = Pixel Per CeniMeter, cm당 픽셀 수 (300dpi 기준)
+    canvas_size=(PPCM * 16, PPCM * 6), # 16cm x 6cm
     image_per=50, # 카테고리 아이콘 배율 (=50%)
     font_ko_per=10, # 가로 길이에 대한 한글 폰트 크기 (이미지 가로의 10%),
     font_en_per=5 # ,
