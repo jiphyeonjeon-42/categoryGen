@@ -1,13 +1,26 @@
 from asyncio import gather, run
 from pathlib import Path
-
-from aiopath import AsyncPath
+from time import time
 
 from category import Category
 from collage import create_collage
 from config import Config
+from utils import PPCM
 
-PPCM = PIXEL_PER_CM = int(118.11023622)  # 300ppi
+
+async def save_img(path: Path):
+    Category(path=path, config=config).save()
+
+
+async def main():
+    Path('dist').mkdir(exist_ok=True)
+    res = await gather(
+        *[save_img(path) for path in Path("icons").glob("**/*.png")]
+    )
+    print(f"이미지 {len(res)}개 처리됨")
+    create_collage()
+    print("콜라주 생성 완료")
+
 
 config = Config(
     canvas_size=(PPCM * 16, PPCM * 6),
@@ -21,20 +34,8 @@ config = Config(
     font_symbol_location=(85, 50),
 )
 
-from time import time
-
-
-async def save_img(path: Path):
-    category = Category(path=path, config=config)
-    await category.save()
-
-
-async def main():
-    await gather(*[save_img(path) for path in Path("icons").glob("**/*.png")])
-
 if __name__ == "__main__":
     start = time()
     run(main())
-    print(f"{(time() - start):.2f}s")
-
-    # create_collage().save(Path("dist/collage.png"))
+    end = time()
+    print(f"took {end - start:.2f}s")

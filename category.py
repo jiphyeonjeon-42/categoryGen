@@ -5,8 +5,8 @@ from PIL.Image import Image as Img
 
 from config import Config
 from utils import BLACK, get_info, resized_img
-from aiopath import AsyncPath
-from io import BytesIO
+
+
 class Category:
     def __init__(self, path: Path, config: Config) -> None:
         self.path = path
@@ -34,7 +34,7 @@ class Category:
             xy=self.conf.per(self.conf.font_ko_location),
             text=self.ko,
             font=self.conf.font_ko_ttf
-            if len(self.en) < 8
+            if len(self.en) < self.conf.font_ko_len_bound
             else self.conf.font_ko_ttf_small,
             fill=self.fontcolor,
         )
@@ -42,7 +42,7 @@ class Category:
             xy=self.conf.per(self.conf.font_en_location),
             text=self.en,
             font=self.conf.font_en_ttf
-            if len(self.en) < 28
+            if len(self.en) < self.conf.font_en_len_bound
             else self.conf.font_en_ttf_small,
             fill=self.fontcolor,
         )
@@ -51,12 +51,8 @@ class Category:
         result.paste(img, self.conf.per(self.conf.image_location), img)
         return result
 
-    async def save(self):
-        buffer = BytesIO()
-        self.canvas.save(buffer, format="PNG")
-        async with AsyncPath(f"dist/{self.name}").open("wb") as f:
-            await f.write(buffer.getbuffer())
-
+    def save(self):
+        self.canvas.save(f"dist/{self.name}")
 
     @property
     def fontcolor(self):

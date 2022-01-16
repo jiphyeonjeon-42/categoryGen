@@ -1,13 +1,11 @@
 from dataclasses import dataclass
+from pathlib import Path
 
 from PIL import ImageFont
 
 from utils import RGB, WHITE, Per, Size
 
-font_ko, font_en = (
-    "fonts/neodgm_pro.ttf",
-    "fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf",
-)
+_fontpath = Path("fonts")
 
 
 @dataclass
@@ -26,25 +24,31 @@ class Config:
     font_symbol_per: float
     font_symbol_location: Per
 
-    font_color: RGB = WHITE
+    font_color = WHITE
+
+    font_ko = "fonts/neodgm_pro.ttf"
+    font_en = "fonts/Ubuntu_Mono/UbuntuMono-Regular.ttf"
+    font_ko_len_bound = 8
+    font_en_len_bound = 28
+    font_bound_mult: float = 0.8
 
     def __post_init__(self):
-        self.font_ko_ttf = ImageFont.truetype(
-            font_ko, self.perw(self.font_ko_per)
-        )
+        ko = str(_fontpath / self.font_ko)
+        en = str(_fontpath / self.font_en)
+        self.font_ko_ttf = ImageFont.truetype(ko, self.perw(self.font_ko_per))
         self.font_ko_ttf_small = ImageFont.truetype(
-            font_ko, self.perw(self.font_ko_per * 0.8)
+            ko, self.perw(self.font_ko_per * self.font_bound_mult)
         )
         self.font_en_ttf = ImageFont.truetype(
-            font_en,
+            en,
             self.perw(self.font_en_per),
         )
         self.font_en_ttf_small = ImageFont.truetype(
-            font_en,
-            self.perw(self.font_en_per * 0.8),
+            en,
+            self.perw(self.font_en_per * self.font_bound_mult),
         )
         self.font_symbol_ttf = ImageFont.truetype(
-            font_ko,
+            ko,
             self.perw(self.font_symbol_per),
         )
 

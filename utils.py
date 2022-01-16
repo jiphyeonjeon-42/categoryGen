@@ -3,7 +3,7 @@ import tkinter
 from pathlib import Path
 from tkinter import Tk
 
-from PIL import Image, ImageFont, ImageTk
+from PIL import Image, ImageTk
 from PIL.Image import Image as Img
 
 RGB = tuple[int, int, int]
@@ -12,6 +12,8 @@ Per = tuple[float, float]
 
 BLACK: RGB = (30, 0, 0)
 WHITE: RGB = (255, 255, 255)
+
+PPCM = PIXELS_PER_CM = int(118.11023622)  # 300dpi
 
 with Path("data.json").open("r") as f:
     data = json.load(f)
