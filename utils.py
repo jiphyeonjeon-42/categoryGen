@@ -35,3 +35,4 @@ def show_image(img: Img, per: int = 100):
 def get_info(path: Path) -> tuple[RGB, str, str, str]:
     res = data.get(path.name)
     return tuple(res["rgb"]), res["ko"], res["en"], res['symbol']
+

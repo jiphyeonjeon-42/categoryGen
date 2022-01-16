@@ -12,7 +12,6 @@ font_ko, font_en = (
 
 @dataclass
 class Config:
-
     image_per: int
     image_location: Per
 

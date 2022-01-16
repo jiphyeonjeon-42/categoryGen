@@ -1,10 +1,11 @@
-import asyncio
+from asyncio import gather, run
 from pathlib import Path
 
-# from aio
+from aiopath import AsyncPath
+
 from category import Category
-from config import Config
 from collage import create_collage
+from config import Config
 
 PPCM = PIXEL_PER_CM = int(118.11023622)  # 300ppi
 
@@ -20,14 +21,20 @@ config = Config(
     font_symbol_location=(85, 50),
 )
 
+from time import time
 
-def main():
-    category_path = Path("category/집현전_카테고리_아이콘")
-    for path in category_path.glob("**/*.png"):
-        Category(path=path, config=config).save()
 
-    create_collage().save(Path("dist/collage.png"))
+async def save_img(path: Path):
+    category = Category(path=path, config=config)
+    await category.save()
 
+
+async def main():
+    await gather(*[save_img(path) for path in Path("icons").glob("**/*.png")])
 
 if __name__ == "__main__":
-    main()
+    start = time()
+    run(main())
+    print(f"{(time() - start):.2f}s")
+
+    # create_collage().save(Path("dist/collage.png"))

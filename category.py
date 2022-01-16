@@ -5,8 +5,8 @@ from PIL.Image import Image as Img
 
 from config import Config
 from utils import BLACK, get_info, resized_img
-
-
+from aiopath import AsyncPath
+from io import BytesIO
 class Category:
     def __init__(self, path: Path, config: Config) -> None:
         self.path = path
@@ -51,8 +51,12 @@ class Category:
         result.paste(img, self.conf.per(self.conf.image_location), img)
         return result
 
-    def save(self):
-        self.canvas.save(f"dist/{self.name}")
+    async def save(self):
+        buffer = BytesIO()
+        self.canvas.save(buffer, format="PNG")
+        async with AsyncPath(f"dist/{self.name}").open("wb") as f:
+            await f.write(buffer.getbuffer())
+
 
     @property
     def fontcolor(self):
