@@ -67,5 +67,5 @@
     "ko": "자격증",
     "en": "Certifications", "symbol": "a"
   },
-  "17.비개발.png": { "rgb": [255, 255, 255], "ko": "비개발", "en": "NOT IT", "symbol": "b~" }
+  "17.비개발.png": { "rgb": [255, 255, 255], "ko": "비개발", "en": "NOT IT", "symbol": "" }
 }
